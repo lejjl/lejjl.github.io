@@ -130,12 +130,91 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-canvas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-虚拟列表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/22/%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8/">虚拟列表</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/22/%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2022-07-22T08:07:26.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-22</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h1><h2 id="颜色、样式和阴影"><a href="#颜色、样式和阴影" class="headerlink" title="颜色、样式和阴影"></a>颜色、样式和阴影</h2><table>
+        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div ref=&quot;list&quot; class=&quot;list_box&quot; @scroll=&quot;scrollEvent&quot;&gt;<br>    &lt;div class=&quot;list_phantom&quot; :style=&quot;&#123; height: listHeight + &#x27;px&#x27; &#125;&quot;&gt;&lt;/div&gt;<br>    &lt;div class=&quot;infinite-list&quot; :style=&quot;&#123; transform: getTransform &#125;&quot;&gt;<br>      &lt;div<br>        ref=&quot;items&quot;<br>        class=&quot;infinite-list-item&quot;<br>        v-for=&quot;item in visibleData&quot;<br>        :key=&quot;item&quot;<br>        :style=&quot;&#123; height: itemSize + &#x27;px&#x27;, lineHeight: itemSize + &#x27;px&#x27; &#125;&quot;<br>      &gt;<br>        &#123;&#123; item &#125;&#125;<br>      &lt;/div&gt;<br>    &lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import &#123; computed, onMounted, ref &#125; from &quot;vue&quot;;<br>onMounted(() =&gt; &#123;<br>  screenHeight.value = `$&#123;document.documentElement.clientHeight&#125;`; //获取窗口可视化高度<br>  start.value = 0;<br>  end.value = start.value + visibleCount.value;<br>&#125;);<br>const list = ref(null);<br>const itemSize = ref(100); //每项高度<br>const listData = ref([]); //所有列表数据<br>const screenHeight = ref(0); //可视区域高度<br>const startOffset = ref(0); //偏移量<br>const start = ref(0); //起始索引<br>const end = ref(null); //结束索引<br>const listHeight = computed(() =&gt; &#123;<br>  return listData.value.length * itemSize.value;<br>&#125;); //列表总高度<br>//可显示的列表项数<br>const visibleCount = computed(() =&gt; &#123;<br>  return Math.ceil(screenHeight.value / itemSize.value);<br>&#125;);<br>//偏移量对应的style,用于可视列表偏移<br>const getTransform = computed(() =&gt; &#123;<br>  return `translateY($&#123;startOffset.value&#125;px)`;<br>  //return `translate3d(0,$&#123;startOffset.value&#125;px,0)`;<br>&#125;);<br>//获取真实显示列表数据<br>const visibleData = computed(() =&gt; &#123;<br>  return listData.value.slice(<br>    start.value,<br>    Math.min(end.value, listData.value.length)<br>  );<br>&#125;);<br>const scrollEvent = () =&gt; &#123;<br>  <br>  //当前滚动位置<br>  let scrollTop = list.value.scrollTop;<br>  //此时的开始索引<br>  start.value = Math.floor(scrollTop / itemSize.value);<br>  //此时的结束索引<br>  end.value = start.value + visibleCount.value;<br>  //此时的偏移量<br>  startOffset.value = scrollTop - (scrollTop % itemSize.value);<br>  console.log(scrollTop, &quot;scrollTop&quot;, scrollTop % itemSize.value);<br><br>  console.log(startOffset.value);<br>&#125;;<br><br>const shuju = () =&gt; &#123;<br>  for (let i = 0; i &lt;= 100000; i++) &#123;<br>    listData.value.push(i);<br>  &#125;<br>  console.log(listData.value);<br>&#125;;<br>shuju()<br>&lt;/script&gt;<br><br>&lt;style lang=&quot;scss&quot; scoped&gt;<br>.list_box &#123;<br>  height: 100%;<br>  width: 100%;<br>  overflow: auto;<br>  position: fixed;<br>  .infinite-list &#123;<br>    left: 0;<br>    right: 0;<br>    top: 0;<br>    position: absolute;<br>    text-align: center;<br>    .infinite-list-item &#123;<br>      padding: 10px;<br>      color: #555;<br>      box-sizing: border-box;<br>      border-bottom: 1px solid #999;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/22/%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-canvas" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/22/canvas/">canvas</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/22/canvas/" class="archive-article-date">
+  	<time datetime="2022-07-22T00:30:55.340Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="颜色、样式和阴影"><a href="#颜色、样式和阴影" class="headerlink" title="颜色、样式和阴影"></a>颜色、样式和阴影</h2><table>
 <thead>
 <tr>
 <th align="left">属性</th>
@@ -504,6 +583,21 @@
     <article id="post-js强化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/22/js%E5%BC%BA%E5%8C%96/">js学习</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/22/js%E5%BC%BA%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2022-07-22T00:30:44.878Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-22</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="js深入"><a href="#js深入" class="headerlink" title="js深入"></a>js深入</h1><h2 id="原型到原型链"><a href="#原型到原型链" class="headerlink" title="原型到原型链"></a>原型到原型链</h2><h3 id="原型链解释"><a href="#原型链解释" class="headerlink" title="原型链解释"></a>原型链解释</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">原型链就是实例对象和原型对象之间的链接。每个函数都有一个prototype属性，这个prototype属性就是我们的原型对象，我们拿这个函数通过new构造函数创建出来的实例对象，这个实例对象自己会有一个指针(_proto_)指向他的构造函数的原型对象,这样构造函数和实例对象之间就通过( _proto_ )连接在一起形成了一条链子。<br></code></pre></td></tr></table></figure>
@@ -693,255 +787,6 @@
 
 
   
-    <article id="post-原生" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        import axios from 'axios'
-import X2js from 'x2js'
-
-const baseUrl = 'http://api.365sup.cn'
-// const baseUrl = "http://192.168.1.18:8078"
-
-let knUrl = 'http://api.365sup.cn'
-
-if (process.env.NODE_ENV === 'development') {
-  knUrl = 'http://dh.591wsh.cn'
-} else {
-  knUrl = window.location.origin
-}
-console.log('当前域名：', window.location.origin)
-
-/**
- * 获取验证码
- * @param {Number} mes 随机数
- */
-export function getImg(mes) {
-  return axios.request({
-    url: `${knUrl}/order/getCaptchImg.action?${mes}`,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    method: 'GET',
-    withCredentials: true,
-  })
-}
-
-/**
- * 兑换接口
- * @param {Object} data
- */
-export function receive(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/receiveKmOrder.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
-      withCredentials: true,
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-/**
- * 查询兑换券信息接口
- * @param {String} cardNo 卡密/兑换码
- * @param {String} captchaType 1、图片验证码 2、短信验证码
- * //当captchaType：1
- * @param {String} captchaImg 图片验证码
- * t_token: localStorage.getItem("token"), 通过getImg拿到的参数
- * //当captchaType：2
- * @param {number} gameAcct  //手机号
- * @param {number} captcha   //短信验证码
- */
-export function qryCardInfo(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/qryCardInfo.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'GET',
-      withCredentials: true,
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-/**
- * 查询查询订单接口
- * @param {String} cardNo 兑换码
- * @param {String} userOrderId 兑换订单号
- */
-export function queryKmOrder(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/queryKmOrder.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'GET',
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-// 自身卡短链
-/**
- * 兑换券信息查询接口
- * @param {String} cardNo 卡密/兑换码
- */
-export function qryCardUrlInfo(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/qryCardUrlInfo.action`,
-      // url: `http://m28l063197.qicp.vip:19115/order/qryCardUrlInfo.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'GET',
-      withCredentials: true,
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-/**
- * 兑换接口
- * @param {Object} cardNo 兑换码
- * @param {Object} userName 兑换订单号
- */
-export function receiveUrlKmOrder(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/receiveUrlKmOrder.action`,
-      //url: `http://m28l063197.qicp.vip:19115/order/receiveUrlKmOrder.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
-      withCredentials: true,
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-/**
- * 查询订单接口
- * @param {String} cardNo 兑换码
- * @param {String} userOrderId 兑换订单号
- */
-export function queryUrlKmOrder(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/queryUrlKmOrder.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'GET',
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-/**
- * 4合一通过兑换接口
- * @param {Object} cardNo 兑换码
- * @param {Object} userName 兑换订单号
- */
-export function receive4h1Order(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/receive4h1Order.action`,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
-      withCredentials: true,
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-/**
- * 手机短信
- * @param {Object} mobileNo 手机号
- */
-export function sendSms(data) {
-  return axios
-    .request({
-      url: `${knUrl}/order/sendSmsByYunJi.action`,
-      // url: 'http://m28l063197.qicp.vip:19115/order/sendSmsByYunJi.action',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'GET',
-      withCredentials: true,
-      params: data,
-    })
-    .then((res) => {
-      return new X2js().xml2js(res.data).root
-    })
-}
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/22/%E5%8E%9F%E7%94%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-pinia" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1057,6 +902,21 @@ export function sendSms(data) {
   
     <article id="post-问题总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/29/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">问题总结</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/29/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2022-06-29T09:17:38.137Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
