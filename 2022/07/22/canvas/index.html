@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>webpack | 散人的破旧仓库</title>
+  <title>散人的破旧仓库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.webpack的构建流程是什么初始化参数：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数,形成最后的配置结果； 开始编译：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件 监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的run方法开始执行编译； 确定入口：从配置的entry入口，开始解析文件构建AST语法">
+  <meta name="description" content="canvas颜色、样式和阴影   属性 描述    fillStyle 设置或返回用于填充绘画的颜色、渐变或模式   strokeStyle 设置或返回用于笔触的颜色、渐变或模式   shadowColor 设置或返回用于阴影的颜色   shadowBlur 设置或返回用于阴影的模糊级别   shadowOffsetX 设置或返回阴影距形状的水平距离   shadowOffsetY 设置或返回阴影">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack">
-<meta property="og:url" content="http://example.com/2022/06/29/webpack/index.html">
+<meta property="og:title" content="散人的破旧仓库">
+<meta property="og:url" content="http://example.com/2022/07/22/canvas/index.html">
 <meta property="og:site_name" content="散人的破旧仓库">
-<meta property="og:description" content="1.webpack的构建流程是什么初始化参数：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数,形成最后的配置结果； 开始编译：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件 监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的run方法开始执行编译； 确定入口：从配置的entry入口，开始解析文件构建AST语法">
+<meta property="og:description" content="canvas颜色、样式和阴影   属性 描述    fillStyle 设置或返回用于填充绘画的颜色、渐变或模式   strokeStyle 设置或返回用于笔触的颜色、渐变或模式   shadowColor 设置或返回用于阴影的颜色   shadowBlur 设置或返回用于阴影的模糊级别   shadowOffsetX 设置或返回阴影距形状的水平距离   shadowOffsetY 设置或返回阴影">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-29T09:11:53.713Z">
-<meta property="article:modified_time" content="2022-06-29T09:16:39.806Z">
+<meta property="article:published_time" content="2022-07-22T00:30:55.340Z">
+<meta property="article:modified_time" content="2022-01-22T08:20:24.247Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -132,154 +132,335 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-webpack" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-canvas" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      webpack
-    </h1>
-  
-
-        
-        <a href="/2022/06/29/webpack/" class="archive-article-date">
-  	<time datetime="2022-06-29T09:11:53.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-webpack的构建流程是什么"><a href="#1-webpack的构建流程是什么" class="headerlink" title="1.webpack的构建流程是什么"></a>1.webpack的构建流程是什么</h4><p><code>初始化参数</code>：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数,形成最后的配置结果；</p>
-<p><code>开始编译</code>：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件 监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的run方法开始执行编译；</p>
-<p><code>确定入口</code>：从配置的entry入口，开始解析文件构建AST语法树，找出依赖，递归下去；</p>
-<p><code>编译模块</code>：递归中根据文件类型和loader配置，调用所有配置的loader对文件进行转换，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理；</p>
-<p><code>完成模块编译并输出</code>：递归完事后，得到每个文件结果，包含每个模块以及他们之间的依赖关系，根据entry或分包配置生成代码块chunk;</p>
-<p><code>输出完成</code>：输出所有的chunk到文件系统；</p>
-<h4 id="2-webpack-的热更新原理"><a href="#2-webpack-的热更新原理" class="headerlink" title="2.webpack 的热更新原理"></a>2.webpack 的热更新原理</h4><p>其实是自己<code>开启了express应用</code>，添加了对webpack编译的监听，添加了和浏览器的websocket长连接，当文件变化触发webpack进行编译并完成后，<code>会通过sokcet消息告诉浏览器准备刷新</code>。而为了减少刷新的代价，就是<code>不用刷新网页</code>，而是<code>刷新某个模块</code>，webpack-dev-server可以支持热更新，通过生成 文件的hash值来比对需要更新的模块，浏览器再进行热替换</p>
-<p><strong>服务端</strong></p>
-<ul>
-<li><p>启动 webpack-dev-server服务器</p>
-</li>
-<li><p>创建webpack实例</p>
-</li>
-<li><p>创建server服务器</p>
-</li>
-<li><p>添加webpack的done事件回调</p>
-</li>
-<li><p>编译完成向客户端发送消息</p>
-</li>
-<li><p>创建express应用app</p>
-</li>
-<li><p>设置文件系统为内存文件系统</p>
-</li>
-<li><p>添加 webpack-dev-middleware 中间件</p>
-</li>
-<li><p>中间件负责返回生成的文件</p>
-</li>
-<li><p>启动webpack编译</p>
-</li>
-<li><p>创建http服务器并启动服务</p>
-</li>
-<li><p>使用sockjs在浏览器端和服务端之间建立一个websocket长连接</p>
-</li>
-<li><p>创建socket服务器</p>
-</li>
-</ul>
-<p><strong>客户端</strong></p>
-<ul>
-<li>webpack-dev-server/client端会监听到此hash消息</li>
-<li>客户端收到ok消息后会执行reloadApp方法进行更新</li>
-<li>在reloadApp中会进行判断，是否支持热更新，如果支持的话发生 webpackHotUpdate事件，如果不支持就直接刷新浏览器</li>
-<li>在 webpack/hot/dev-server.js 会监听 webpackHotUpdate 事件</li>
-<li>在check方法里会调用module.hot.check方法</li>
-<li>HotModuleReplacement.runtime请求Manifest</li>
-<li>通过调用 JsonpMainTemplate.runtime 的 hotDownloadManifest方法</li>
-<li>调用JsonpMainTemplate.runtime的hotDownloadUpdateChunk方法通过JSONP请求获取最新的模块代码</li>
-<li>补丁js取回来或会调用 JsonpMainTemplate.runtime.js 的 webpackHotUpdate 方法</li>
-<li>然后会调用 HotModuleReplacement.runtime.js 的 hotAddUpdateChunk方法动态更新 模块代码</li>
-<li>然后调用hotApply方法进行热更</li>
-</ul>
-<h4 id="3-webpack-打包是hash码是如何生成的"><a href="#3-webpack-打包是hash码是如何生成的" class="headerlink" title="3.webpack 打包是hash码是如何生成的"></a>3.webpack 打包是hash码是如何生成的</h4><p>   1.webpack生态中存在多种计算hash的方式</p>
-<ul>
-<li><code>hash</code></li>
-<li><code>chunkhash</code></li>
-<li><code>contenthash </code></li>
-</ul>
-<p>hash代表每次webpack编译中生成的hash值，所有使用这种方式的文件hash都相同。每次构建都会使webpack计算新的hash。chunkhash基于入口文件及其关联的chunk形成，某个文件的改动只会影响与它有关联的chunk的hash值，不会影响其他文件contenthash根据文件内容创建。当文件内容发生变化时，contenthash发生变化</p>
-<p>2.避免相同随机值</p>
-<ul>
-<li>webpack在<code>计算hash后分割chunk</code>。<code>产生相同随机值可能是因为这些文件属于同一个chunk,可以将某个文件提到独立的chunk（如放入entry）</code></li>
-</ul>
-<h4 id="4-webpack-离线缓存静态资源如何实现"><a href="#4-webpack-离线缓存静态资源如何实现" class="headerlink" title="4.webpack 离线缓存静态资源如何实现"></a>4.webpack 离线缓存静态资源如何实现</h4><ul>
-<li>在配置webpack时，我们可以使用html-webpack-plugin来注入到和html一段脚本来实现将第三方或者共用资源进行 静态化存储在html中注入一段标识，例如 <code>&lt;% HtmlWebpackPlugin.options.loading.html %&gt;</code> ,在 html-webpack-plugin 中即可通过配置html属性，将script注入进去</li>
-<li>利用 webpack-manifest-plugin 并通过配置 webpack-manifest-plugin ,生成 manifestjson 文件，用来对比js资源的差异，做到是否替换，当然，也要写缓存script</li>
-<li>在我们做Cl以及CD的时候，也可以通过编辑文件流来实现静态化脚本的注入，来降低服务器的压力，提高性能</li>
-<li>可以通过自定义plugin或者html-webpack-plugin等周期函数，动态注入前端静态化存储script</li>
-</ul>
-<h4 id="5-webpack-常见的plugin有哪些"><a href="#5-webpack-常见的plugin有哪些" class="headerlink" title="5.webpack 常见的plugin有哪些"></a>5.webpack 常见的plugin有哪些</h4><ul>
-<li><code>ProvidePlugin</code>：自动加载模块，代替require和import</li>
-<li><code>html-webpack-plugin</code>可以根据模板自动生成html代码，并自动引用css和js文件</li>
-<li><code>extract-text-webpack-plugin</code> 将js文件中引用的样式单独抽离成css文件</li>
-<li><code>DefinePlugin</code> 编译时配置全局变量，这对开发模式和发布模式的构建允许不同的行为非常有用。</li>
-<li><code>HotModuleReplacementPlugin</code> 热更新</li>
-<li><code>optimize-css-assets-webpack-plugin</code> 不同组件中重复的css可以快速去重</li>
-<li><code>webpack-bundle-analyzer</code> 一个webpack的bundle文件分析工具，将bundle文件以可交互缩放的treemap的形式展示。</li>
-<li><code>compression-webpack-plugin</code> 生产环境可采用gzip压缩JS和CSS</li>
-<li><code>happypack</code>：通过多进程模型，来加速代码构建</li>
-<li><code>clean-wenpack-plugin</code> 清理每次打包下没有使用的文件</li>
-<li><code>speed-measure-webpack-plugin</code>:可以看至U每个Loader和Plugin执行耗时（整个扌丁包耗时、每个Plugin和 Loader 耗时）</li>
-<li><code>webpack-bundle-analyzer</code>:可视化Webpack输出文件的体积（业务组件、依赖第三方模块</li>
-</ul>
-<h4 id="6-webpack-插件如何实现"><a href="#6-webpack-插件如何实现" class="headerlink" title="6.webpack 插件如何实现"></a>6.webpack 插件如何实现</h4><ul>
-<li><p>webpack本质是一个事件流机制，核心模块：tabable(Sync + Async)Hooks 构造出 === Compiler(编译) + Compiletion(创建bundles)</p>
-</li>
-<li><p>compiler对象代表了完整的webpack环境配置。这个对象在启动webpack时被一次性建立，并配置好所有可操作的设置，包括options、loader和plugin。当在webpack环境中应用一插件时，插件将收到此compiler对象的引用。可以使用它来访问webpack的主环境</p>
-</li>
-<li><p>compilation对象代表了一次资源版本构建。当运行webpack开发环境中间件时，每当检测到一个文件变化，就会创建一个新的compilation,从而生成一个新的编译资源。一个compilation对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态的信息。compilation对象也提供了很多关键时机的回调，以供插件做自定义处理时选择使用</p>
-</li>
-<li><p>创建一个插件函数，在其prototype上定义apply方法，指定一个webpack自身的事件钩子</p>
-</li>
-<li><p>函数内部处理webpack内部实例的特定数据</p>
-</li>
-<li><p>处理完成后，调用webpack提供的回调函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">MyWebpackPlugin</span>(<span class="hljs-params"></span>)(<span class="hljs-params"></span><br><span class="hljs-params">&#125;；</span><br><span class="hljs-params"><span class="hljs-comment">// prototype 上定义 apply 方法</span></span><br><span class="hljs-params">MyWebpackPlugin.prototype.apply=<span class="hljs-keyword">function</span>()&#123;</span><br><span class="hljs-params">// 指定一个事件函数挂载到webpack</span><br><span class="hljs-params">compiler.pluginCwebpacksEventHook<span class="hljs-string">&quot;funcion (compiler)( console. log(“这是一个插件”)；</span></span><br><span class="hljs-string"><span class="hljs-params">// 功能完成调用后webpack提供的回调函数</span></span><br><span class="hljs-string"><span class="hljs-params">callback()</span></span><br><span class="hljs-string"><span class="hljs-params">&#125;)</span></span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="7-webpack有哪些常⻅的Loader"><a href="#7-webpack有哪些常⻅的Loader" class="headerlink" title="7.webpack有哪些常⻅的Loader"></a>7.webpack有哪些常⻅的Loader</h4><ul>
-<li><code>file-loader</code>：把⽂件输出到⼀个⽂件夹中，在代码中通过相对 URL 去引⽤输出的⽂件</li>
-<li><code>url-loader</code>：和 file-loader 类似，但是能在⽂件很⼩的情况下以 base64 的⽅式把⽂件内容注⼊到代码中去</li>
-<li><code>source-map-loader</code>：加载额外的 Source Map ⽂件，以⽅便断点调试</li>
-<li><code>image-loader</code>：加载并且压缩图⽚⽂件</li>
-<li><code>babel-loader</code>：把 ES6 转换成 ES5</li>
-<li><code>css-loader</code>：加载 CSS，⽀持模块化、压缩、⽂件导⼊等特性</li>
-<li><code>style-loader</code>：把 CSS 代码注⼊到 JavaScript 中，通过 DOM 操作去加载 CSS。</li>
-<li><code>eslint-loader</code>：通过 ESLint 检查 JavaScript 代码</li>
-</ul>
-<h4 id="8-webpack如何实现持久化缓存"><a href="#8-webpack如何实现持久化缓存" class="headerlink" title="8.webpack如何实现持久化缓存"></a>8.webpack如何实现持久化缓存</h4><ul>
-<li><code>服务端设置http缓存头</code>（cache-control）</li>
-<li>打包依赖和运行时到不同的chunk，<code>即作为splitChunk,因为他们几乎是不变的</code></li>
-<li><code>延迟加载</code>：使用<code>import()方式</code>，可以动态加载的文件分到独立的chunk,以得到自己的chunkhash</li>
-<li><code>保持hash值的稳定</code>：编译过程和文件内通的更改尽量不影响其他文件hash的计算，对于低版本webpack生成的增量数字id不稳定问题，可用hashedModuleIdsPlugin基于文件路径生成解决</li>
-</ul>
-<h4 id="9-如何⽤webpack来优化前端性能？"><a href="#9-如何⽤webpack来优化前端性能？" class="headerlink" title="9.如何⽤webpack来优化前端性能？"></a>9.如何⽤<strong>webpack</strong>来优化前端性能？</h4><p>⽤webpack优化前端性能是指优化webpack的输出结果，让打包的最终结果在浏览器运⾏快速⾼效。</p>
-<ul>
-<li><code>压缩代码</code>：删除多余的代码、注释、简化代码的写法等等⽅式。可以利⽤webpack的 UglifyJsPlugin 和 ParallelUglifyPlugin 来压缩JS⽂件， 利⽤ cssnano （css-loader?minimize）来压缩css</li>
-<li><code>利⽤CDN加速</code>: 在构建过程中，将引⽤的静态资源路径修改为CDN上对应的路径。可以利⽤webpack对于 output 参数和各loader的 publicPath 参数来修改资源路径</li>
-<li><code>Tree Shaking</code>: 将代码中永远不会⾛到的⽚段删除掉。可以通过在启动webpack时追加参数 –optimize-minimize 来实现</li>
-<li><code>Code Splitting</code>: 将代码按路由维度或者组件分块(chunk),这样做到按需加载,同时可以充分利⽤浏览器缓存</li>
-<li><code>提取公共第三⽅库</code>: SplitChunksPlugin插件来进⾏公共模块抽取,利⽤浏览器缓存可以⻓期缓存这些⽆需频繁变动的公共代码</li>
-</ul>
-<h4 id="10-webpack-treeShaking机制的原理"><a href="#10-webpack-treeShaking机制的原理" class="headerlink" title="10.webpack treeShaking机制的原理"></a>10.webpack treeShaking机制的原理</h4><ul>
-<li>treeShaking 也叫<code>摇树优化</code>，是一种通过移除多于代码，来优化打包体积的，<code>生产环境默认开启</code>。</li>
-<li>可以在<code>代码不运行</code>的状态下，分析出<code>不需要的代码</code>；</li>
-<li>利用es6模块的规范<ul>
-<li>ES6 Module引入进行<code>静态分析</code>，故而<code>编译的时候正确判断到底加载了那些模块</code></li>
-<li>静态分析程序流，判断那些模块和变量未被使用或者引用，进而删除对应代码</li>
-</ul>
-</li>
-</ul>
+        <h1 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h1><h2 id="颜色、样式和阴影"><a href="#颜色、样式和阴影" class="headerlink" title="颜色、样式和阴影"></a>颜色、样式和阴影</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_fillstyle.asp">fillStyle</a></td>
+<td align="left">设置或返回用于填充绘画的颜色、渐变或模式</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_strokestyle.asp">strokeStyle</a></td>
+<td align="left">设置或返回用于笔触的颜色、渐变或模式</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_shadowcolor.asp">shadowColor</a></td>
+<td align="left">设置或返回用于阴影的颜色</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_shadowblur.asp">shadowBlur</a></td>
+<td align="left">设置或返回用于阴影的模糊级别</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_shadowoffsetx.asp">shadowOffsetX</a></td>
+<td align="left">设置或返回阴影距形状的水平距离</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_shadowoffsety.asp">shadowOffsetY</a></td>
+<td align="left">设置或返回阴影距形状的垂直距离</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_createlineargradient.asp">createLinearGradient()</a></td>
+<td align="left">创建线性渐变（用在画布内容上）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_createpattern.asp">createPattern()</a></td>
+<td align="left">在指定的方向上重复指定的元素</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_createradialgradient.asp">createRadialGradient()</a></td>
+<td align="left">创建放射状/环形的渐变（用在画布内容上）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_addcolorstop.asp">addColorStop()</a></td>
+<td align="left">规定渐变对象中的颜色和停止位置</td>
+</tr>
+</tbody></table>
+<h2 id="线条样式"><a href="#线条样式" class="headerlink" title="线条样式"></a>线条样式</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_linecap.asp">lineCap</a></td>
+<td align="left">设置或返回线条的结束端点样式</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_linejoin.asp">lineJoin</a></td>
+<td align="left">设置或返回两条线相交时，所创建的拐角类型</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_linewidth.asp">lineWidth</a></td>
+<td align="left">设置或返回当前的线条宽度</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_miterlimit.asp">miterLimit</a></td>
+<td align="left">设置或返回最大斜接长度</td>
+</tr>
+</tbody></table>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_rect.asp">rect()</a></td>
+<td align="left">创建矩形</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_fillrect.asp">fillRect()</a></td>
+<td align="left">绘制“被填充”的矩形</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_strokerect.asp">strokeRect()</a></td>
+<td align="left">绘制矩形（无填充）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_clearrect.asp">clearRect()</a></td>
+<td align="left">在给定的矩形内清除指定的像素</td>
+</tr>
+</tbody></table>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_fill.asp">fill()</a></td>
+<td align="left">填充当前绘图（路径）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_stroke.asp">stroke()</a></td>
+<td align="left">绘制已定义的路径</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_beginpath.asp">beginPath()</a></td>
+<td align="left">起始一条路径，或重置当前路径</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_moveto.asp">moveTo()</a></td>
+<td align="left">把路径移动到画布中的指定点，不创建线条</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_closepath.asp">closePath()</a></td>
+<td align="left">创建从当前点回到起始点的路径</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_lineto.asp">lineTo()</a></td>
+<td align="left">添加一个新点，然后在画布中创建从该点到最后指定点的线条</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_clip.asp">clip()</a></td>
+<td align="left">从原始画布剪切任意形状和尺寸的区域</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_quadraticcurveto.asp">quadraticCurveTo()</a></td>
+<td align="left">创建二次贝塞尔曲线</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_beziercurveto.asp">bezierCurveTo()</a></td>
+<td align="left">创建三次方贝塞尔曲线</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_arc.asp">arc()</a></td>
+<td align="left">创建弧/曲线（用于创建圆形或部分圆）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_arcto.asp">arcTo()</a></td>
+<td align="left">创建两切线之间的弧/曲线</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_ispointinpath.asp">isPointInPath()</a></td>
+<td align="left">如果指定的点位于当前路径中，则返回 true，否则返回 false</td>
+</tr>
+</tbody></table>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_scale.asp">scale()</a></td>
+<td align="left">缩放当前绘图至更大或更小</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_rotate.asp">rotate()</a></td>
+<td align="left">旋转当前绘图</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_translate.asp">translate()</a></td>
+<td align="left">重新映射画布上的 (0,0) 位置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_transform.asp">transform()</a></td>
+<td align="left">替换绘图的当前转换矩阵</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_settransform.asp">setTransform()</a></td>
+<td align="left">将当前转换重置为单位矩阵。然后运行 transform()</td>
+</tr>
+</tbody></table>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_font.asp">font</a></td>
+<td align="left">设置或返回文本内容的当前字体属性</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_textalign.asp">textAlign</a></td>
+<td align="left">设置或返回文本内容的当前对齐方式</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_textbaseline.asp">textBaseline</a></td>
+<td align="left">设置或返回在绘制文本时使用的当前文本基线</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_filltext.asp">fillText()</a></td>
+<td align="left">在画布上绘制“被填充的”文本</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_stroketext.asp">strokeText()</a></td>
+<td align="left">在画布上绘制文本（无填充）</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_measuretext.asp">measureText()</a></td>
+<td align="left">返回包含指定文本宽度的对象</td>
+</tr>
+</tbody></table>
+<h2 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_drawimage.asp">drawImage()</a></td>
+<td align="left">向画布上绘制图像、画布或视频</td>
+</tr>
+</tbody></table>
+<h2 id="像素操作"><a href="#像素操作" class="headerlink" title="像素操作"></a>像素操作</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_imagedata_width.asp">width</a></td>
+<td align="left">返回 ImageData 对象的宽度</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_imagedata_height.asp">height</a></td>
+<td align="left">返回 ImageData 对象的高度</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_imagedata_data.asp">data</a></td>
+<td align="left">返回一个对象，其包含指定的 ImageData 对象的图像数据</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_createimagedata.asp">createImageData()</a></td>
+<td align="left">创建新的、空白的 ImageData 对象</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_getimagedata.asp">getImageData()</a></td>
+<td align="left">返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_putimagedata.asp">putImageData()</a></td>
+<td align="left">把图像数据（从指定的 ImageData 对象）放回画布上</td>
+</tr>
+</tbody></table>
+<h2 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_globalalpha.asp">globalAlpha</a></td>
+<td align="left">设置或返回绘图的当前 alpha 或透明值</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/tags/canvas_globalcompositeoperation.asp">globalCompositeOperation</a></td>
+<td align="left">设置或返回新图像如何绘制到已有的图像上</td>
+</tr>
+</tbody></table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">save()</td>
+<td align="left">保存当前环境的状态</td>
+</tr>
+<tr>
+<td align="left">restore()</td>
+<td align="left">返回之前保存过的路径状态和属性</td>
+</tr>
+<tr>
+<td align="left">createEvent()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">getContext()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">toDataURL()</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
 
       
 
@@ -301,18 +482,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/06/29/%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/06/29/vue3%E4%BB%A5%E5%8F%8Avue2%E5%BC%BA%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">VUE3</div>
+    <a href="/2022/07/22/js%E5%BC%BA%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   

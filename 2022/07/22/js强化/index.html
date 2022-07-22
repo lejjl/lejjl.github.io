@@ -6,19 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>webpack | 散人的破旧仓库</title>
+  <title>散人的破旧仓库</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.webpack的构建流程是什么初始化参数：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数,形成最后的配置结果； 开始编译：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件 监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的run方法开始执行编译； 确定入口：从配置的entry入口，开始解析文件构建AST语法">
+  <meta name="description" content="js深入原型到原型链原型链解释1原型链就是实例对象和原型对象之间的链接。每个函数都有一个prototype属性，这个prototype属性就是我们的原型对象，我们拿这个函数通过new构造函数创建出来的实例对象，这个实例对象自己会有一个指针(_proto_)指向他的构造函数的原型对象,这样构造函数和实例对象之间就通过( _proto_ )连接在一起形成了一条链子。  构造函数创建对象构造一个函数对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack">
-<meta property="og:url" content="http://example.com/2022/06/29/webpack/index.html">
+<meta property="og:title" content="散人的破旧仓库">
+<meta property="og:url" content="http://example.com/2022/07/22/js%E5%BC%BA%E5%8C%96/index.html">
 <meta property="og:site_name" content="散人的破旧仓库">
-<meta property="og:description" content="1.webpack的构建流程是什么初始化参数：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数,形成最后的配置结果； 开始编译：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件 监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的run方法开始执行编译； 确定入口：从配置的entry入口，开始解析文件构建AST语法">
+<meta property="og:description" content="js深入原型到原型链原型链解释1原型链就是实例对象和原型对象之间的链接。每个函数都有一个prototype属性，这个prototype属性就是我们的原型对象，我们拿这个函数通过new构造函数创建出来的实例对象，这个实例对象自己会有一个指针(_proto_)指向他的构造函数的原型对象,这样构造函数和实例对象之间就通过( _proto_ )连接在一起形成了一条链子。  构造函数创建对象构造一个函数对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-29T09:11:53.713Z">
-<meta property="article:modified_time" content="2022-06-29T09:16:39.806Z">
+<meta property="og:image" content="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67">
+<meta property="og:image" content="https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67">
+<meta property="og:image" content="https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67">
+<meta property="og:image" content="https://camo.githubusercontent.com/ad0ee0e2594c1ac471bbb42321963c130f4fe1ef9ec70389c8ced54544d3fd6c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065342e706e67">
+<meta property="og:image" content="https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67">
+<meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/12/13/167a72dd9efb1f87~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp">
+<meta property="article:published_time" content="2022-07-22T00:30:44.878Z">
+<meta property="article:modified_time" content="2022-07-08T09:37:52.155Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67">
   
     <link rel="alternative" href="/atom.xml" title="散人的破旧仓库" type="application/atom+xml">
   
@@ -132,154 +139,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-webpack" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js强化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      webpack
-    </h1>
-  
-
-        
-        <a href="/2022/06/29/webpack/" class="archive-article-date">
-  	<time datetime="2022-06-29T09:11:53.713Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-webpack的构建流程是什么"><a href="#1-webpack的构建流程是什么" class="headerlink" title="1.webpack的构建流程是什么"></a>1.webpack的构建流程是什么</h4><p><code>初始化参数</code>：解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数,形成最后的配置结果；</p>
-<p><code>开始编译</code>：上一步得到的参数初始化compiler对象，注册所有配置的插件，插件 监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的run方法开始执行编译；</p>
-<p><code>确定入口</code>：从配置的entry入口，开始解析文件构建AST语法树，找出依赖，递归下去；</p>
-<p><code>编译模块</code>：递归中根据文件类型和loader配置，调用所有配置的loader对文件进行转换，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理；</p>
-<p><code>完成模块编译并输出</code>：递归完事后，得到每个文件结果，包含每个模块以及他们之间的依赖关系，根据entry或分包配置生成代码块chunk;</p>
-<p><code>输出完成</code>：输出所有的chunk到文件系统；</p>
-<h4 id="2-webpack-的热更新原理"><a href="#2-webpack-的热更新原理" class="headerlink" title="2.webpack 的热更新原理"></a>2.webpack 的热更新原理</h4><p>其实是自己<code>开启了express应用</code>，添加了对webpack编译的监听，添加了和浏览器的websocket长连接，当文件变化触发webpack进行编译并完成后，<code>会通过sokcet消息告诉浏览器准备刷新</code>。而为了减少刷新的代价，就是<code>不用刷新网页</code>，而是<code>刷新某个模块</code>，webpack-dev-server可以支持热更新，通过生成 文件的hash值来比对需要更新的模块，浏览器再进行热替换</p>
-<p><strong>服务端</strong></p>
-<ul>
-<li><p>启动 webpack-dev-server服务器</p>
-</li>
-<li><p>创建webpack实例</p>
-</li>
-<li><p>创建server服务器</p>
-</li>
-<li><p>添加webpack的done事件回调</p>
-</li>
-<li><p>编译完成向客户端发送消息</p>
-</li>
-<li><p>创建express应用app</p>
-</li>
-<li><p>设置文件系统为内存文件系统</p>
-</li>
-<li><p>添加 webpack-dev-middleware 中间件</p>
-</li>
-<li><p>中间件负责返回生成的文件</p>
-</li>
-<li><p>启动webpack编译</p>
-</li>
-<li><p>创建http服务器并启动服务</p>
-</li>
-<li><p>使用sockjs在浏览器端和服务端之间建立一个websocket长连接</p>
-</li>
-<li><p>创建socket服务器</p>
-</li>
-</ul>
-<p><strong>客户端</strong></p>
-<ul>
-<li>webpack-dev-server/client端会监听到此hash消息</li>
-<li>客户端收到ok消息后会执行reloadApp方法进行更新</li>
-<li>在reloadApp中会进行判断，是否支持热更新，如果支持的话发生 webpackHotUpdate事件，如果不支持就直接刷新浏览器</li>
-<li>在 webpack/hot/dev-server.js 会监听 webpackHotUpdate 事件</li>
-<li>在check方法里会调用module.hot.check方法</li>
-<li>HotModuleReplacement.runtime请求Manifest</li>
-<li>通过调用 JsonpMainTemplate.runtime 的 hotDownloadManifest方法</li>
-<li>调用JsonpMainTemplate.runtime的hotDownloadUpdateChunk方法通过JSONP请求获取最新的模块代码</li>
-<li>补丁js取回来或会调用 JsonpMainTemplate.runtime.js 的 webpackHotUpdate 方法</li>
-<li>然后会调用 HotModuleReplacement.runtime.js 的 hotAddUpdateChunk方法动态更新 模块代码</li>
-<li>然后调用hotApply方法进行热更</li>
-</ul>
-<h4 id="3-webpack-打包是hash码是如何生成的"><a href="#3-webpack-打包是hash码是如何生成的" class="headerlink" title="3.webpack 打包是hash码是如何生成的"></a>3.webpack 打包是hash码是如何生成的</h4><p>   1.webpack生态中存在多种计算hash的方式</p>
-<ul>
-<li><code>hash</code></li>
-<li><code>chunkhash</code></li>
-<li><code>contenthash </code></li>
-</ul>
-<p>hash代表每次webpack编译中生成的hash值，所有使用这种方式的文件hash都相同。每次构建都会使webpack计算新的hash。chunkhash基于入口文件及其关联的chunk形成，某个文件的改动只会影响与它有关联的chunk的hash值，不会影响其他文件contenthash根据文件内容创建。当文件内容发生变化时，contenthash发生变化</p>
-<p>2.避免相同随机值</p>
-<ul>
-<li>webpack在<code>计算hash后分割chunk</code>。<code>产生相同随机值可能是因为这些文件属于同一个chunk,可以将某个文件提到独立的chunk（如放入entry）</code></li>
-</ul>
-<h4 id="4-webpack-离线缓存静态资源如何实现"><a href="#4-webpack-离线缓存静态资源如何实现" class="headerlink" title="4.webpack 离线缓存静态资源如何实现"></a>4.webpack 离线缓存静态资源如何实现</h4><ul>
-<li>在配置webpack时，我们可以使用html-webpack-plugin来注入到和html一段脚本来实现将第三方或者共用资源进行 静态化存储在html中注入一段标识，例如 <code>&lt;% HtmlWebpackPlugin.options.loading.html %&gt;</code> ,在 html-webpack-plugin 中即可通过配置html属性，将script注入进去</li>
-<li>利用 webpack-manifest-plugin 并通过配置 webpack-manifest-plugin ,生成 manifestjson 文件，用来对比js资源的差异，做到是否替换，当然，也要写缓存script</li>
-<li>在我们做Cl以及CD的时候，也可以通过编辑文件流来实现静态化脚本的注入，来降低服务器的压力，提高性能</li>
-<li>可以通过自定义plugin或者html-webpack-plugin等周期函数，动态注入前端静态化存储script</li>
-</ul>
-<h4 id="5-webpack-常见的plugin有哪些"><a href="#5-webpack-常见的plugin有哪些" class="headerlink" title="5.webpack 常见的plugin有哪些"></a>5.webpack 常见的plugin有哪些</h4><ul>
-<li><code>ProvidePlugin</code>：自动加载模块，代替require和import</li>
-<li><code>html-webpack-plugin</code>可以根据模板自动生成html代码，并自动引用css和js文件</li>
-<li><code>extract-text-webpack-plugin</code> 将js文件中引用的样式单独抽离成css文件</li>
-<li><code>DefinePlugin</code> 编译时配置全局变量，这对开发模式和发布模式的构建允许不同的行为非常有用。</li>
-<li><code>HotModuleReplacementPlugin</code> 热更新</li>
-<li><code>optimize-css-assets-webpack-plugin</code> 不同组件中重复的css可以快速去重</li>
-<li><code>webpack-bundle-analyzer</code> 一个webpack的bundle文件分析工具，将bundle文件以可交互缩放的treemap的形式展示。</li>
-<li><code>compression-webpack-plugin</code> 生产环境可采用gzip压缩JS和CSS</li>
-<li><code>happypack</code>：通过多进程模型，来加速代码构建</li>
-<li><code>clean-wenpack-plugin</code> 清理每次打包下没有使用的文件</li>
-<li><code>speed-measure-webpack-plugin</code>:可以看至U每个Loader和Plugin执行耗时（整个扌丁包耗时、每个Plugin和 Loader 耗时）</li>
-<li><code>webpack-bundle-analyzer</code>:可视化Webpack输出文件的体积（业务组件、依赖第三方模块</li>
-</ul>
-<h4 id="6-webpack-插件如何实现"><a href="#6-webpack-插件如何实现" class="headerlink" title="6.webpack 插件如何实现"></a>6.webpack 插件如何实现</h4><ul>
-<li><p>webpack本质是一个事件流机制，核心模块：tabable(Sync + Async)Hooks 构造出 === Compiler(编译) + Compiletion(创建bundles)</p>
-</li>
-<li><p>compiler对象代表了完整的webpack环境配置。这个对象在启动webpack时被一次性建立，并配置好所有可操作的设置，包括options、loader和plugin。当在webpack环境中应用一插件时，插件将收到此compiler对象的引用。可以使用它来访问webpack的主环境</p>
-</li>
-<li><p>compilation对象代表了一次资源版本构建。当运行webpack开发环境中间件时，每当检测到一个文件变化，就会创建一个新的compilation,从而生成一个新的编译资源。一个compilation对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态的信息。compilation对象也提供了很多关键时机的回调，以供插件做自定义处理时选择使用</p>
-</li>
-<li><p>创建一个插件函数，在其prototype上定义apply方法，指定一个webpack自身的事件钩子</p>
-</li>
-<li><p>函数内部处理webpack内部实例的特定数据</p>
-</li>
-<li><p>处理完成后，调用webpack提供的回调函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">MyWebpackPlugin</span>(<span class="hljs-params"></span>)(<span class="hljs-params"></span><br><span class="hljs-params">&#125;；</span><br><span class="hljs-params"><span class="hljs-comment">// prototype 上定义 apply 方法</span></span><br><span class="hljs-params">MyWebpackPlugin.prototype.apply=<span class="hljs-keyword">function</span>()&#123;</span><br><span class="hljs-params">// 指定一个事件函数挂载到webpack</span><br><span class="hljs-params">compiler.pluginCwebpacksEventHook<span class="hljs-string">&quot;funcion (compiler)( console. log(“这是一个插件”)；</span></span><br><span class="hljs-string"><span class="hljs-params">// 功能完成调用后webpack提供的回调函数</span></span><br><span class="hljs-string"><span class="hljs-params">callback()</span></span><br><span class="hljs-string"><span class="hljs-params">&#125;)</span></span><br></code></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="7-webpack有哪些常⻅的Loader"><a href="#7-webpack有哪些常⻅的Loader" class="headerlink" title="7.webpack有哪些常⻅的Loader"></a>7.webpack有哪些常⻅的Loader</h4><ul>
-<li><code>file-loader</code>：把⽂件输出到⼀个⽂件夹中，在代码中通过相对 URL 去引⽤输出的⽂件</li>
-<li><code>url-loader</code>：和 file-loader 类似，但是能在⽂件很⼩的情况下以 base64 的⽅式把⽂件内容注⼊到代码中去</li>
-<li><code>source-map-loader</code>：加载额外的 Source Map ⽂件，以⽅便断点调试</li>
-<li><code>image-loader</code>：加载并且压缩图⽚⽂件</li>
-<li><code>babel-loader</code>：把 ES6 转换成 ES5</li>
-<li><code>css-loader</code>：加载 CSS，⽀持模块化、压缩、⽂件导⼊等特性</li>
-<li><code>style-loader</code>：把 CSS 代码注⼊到 JavaScript 中，通过 DOM 操作去加载 CSS。</li>
-<li><code>eslint-loader</code>：通过 ESLint 检查 JavaScript 代码</li>
-</ul>
-<h4 id="8-webpack如何实现持久化缓存"><a href="#8-webpack如何实现持久化缓存" class="headerlink" title="8.webpack如何实现持久化缓存"></a>8.webpack如何实现持久化缓存</h4><ul>
-<li><code>服务端设置http缓存头</code>（cache-control）</li>
-<li>打包依赖和运行时到不同的chunk，<code>即作为splitChunk,因为他们几乎是不变的</code></li>
-<li><code>延迟加载</code>：使用<code>import()方式</code>，可以动态加载的文件分到独立的chunk,以得到自己的chunkhash</li>
-<li><code>保持hash值的稳定</code>：编译过程和文件内通的更改尽量不影响其他文件hash的计算，对于低版本webpack生成的增量数字id不稳定问题，可用hashedModuleIdsPlugin基于文件路径生成解决</li>
-</ul>
-<h4 id="9-如何⽤webpack来优化前端性能？"><a href="#9-如何⽤webpack来优化前端性能？" class="headerlink" title="9.如何⽤webpack来优化前端性能？"></a>9.如何⽤<strong>webpack</strong>来优化前端性能？</h4><p>⽤webpack优化前端性能是指优化webpack的输出结果，让打包的最终结果在浏览器运⾏快速⾼效。</p>
-<ul>
-<li><code>压缩代码</code>：删除多余的代码、注释、简化代码的写法等等⽅式。可以利⽤webpack的 UglifyJsPlugin 和 ParallelUglifyPlugin 来压缩JS⽂件， 利⽤ cssnano （css-loader?minimize）来压缩css</li>
-<li><code>利⽤CDN加速</code>: 在构建过程中，将引⽤的静态资源路径修改为CDN上对应的路径。可以利⽤webpack对于 output 参数和各loader的 publicPath 参数来修改资源路径</li>
-<li><code>Tree Shaking</code>: 将代码中永远不会⾛到的⽚段删除掉。可以通过在启动webpack时追加参数 –optimize-minimize 来实现</li>
-<li><code>Code Splitting</code>: 将代码按路由维度或者组件分块(chunk),这样做到按需加载,同时可以充分利⽤浏览器缓存</li>
-<li><code>提取公共第三⽅库</code>: SplitChunksPlugin插件来进⾏公共模块抽取,利⽤浏览器缓存可以⻓期缓存这些⽆需频繁变动的公共代码</li>
-</ul>
-<h4 id="10-webpack-treeShaking机制的原理"><a href="#10-webpack-treeShaking机制的原理" class="headerlink" title="10.webpack treeShaking机制的原理"></a>10.webpack treeShaking机制的原理</h4><ul>
-<li>treeShaking 也叫<code>摇树优化</code>，是一种通过移除多于代码，来优化打包体积的，<code>生产环境默认开启</code>。</li>
-<li>可以在<code>代码不运行</code>的状态下，分析出<code>不需要的代码</code>；</li>
-<li>利用es6模块的规范<ul>
-<li>ES6 Module引入进行<code>静态分析</code>，故而<code>编译的时候正确判断到底加载了那些模块</code></li>
-<li>静态分析程序流，判断那些模块和变量未被使用或者引用，进而删除对应代码</li>
+        <h1 id="js深入"><a href="#js深入" class="headerlink" title="js深入"></a>js深入</h1><h2 id="原型到原型链"><a href="#原型到原型链" class="headerlink" title="原型到原型链"></a>原型到原型链</h2><h3 id="原型链解释"><a href="#原型链解释" class="headerlink" title="原型链解释"></a>原型链解释</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">原型链就是实例对象和原型对象之间的链接。每个函数都有一个prototype属性，这个prototype属性就是我们的原型对象，我们拿这个函数通过new构造函数创建出来的实例对象，这个实例对象自己会有一个指针(_proto_)指向他的构造函数的原型对象,这样构造函数和实例对象之间就通过( _proto_ )连接在一起形成了一条链子。<br></code></pre></td></tr></table></figure>
+
+<h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><p><em>构造一个函数对象</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br>    <br>&#125;<br><span class="hljs-keyword">var</span> person  = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>()<br>person.<span class="hljs-property">name</span>= <span class="hljs-string">&#x27;Kevin&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">name</span>)  <span class="hljs-comment">//Kevin</span><br></code></pre></td></tr></table></figure>
+
+<p><em>上描述中Person是构造函数，我们通过new创建了一个实例对象person</em></p>
+<h4 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h4><p><em>每个函数都有一个 prototype 属性，就是我们经常在各种例子中看到的那个 prototype ，比如：</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br><br>&#125;<br><span class="hljs-comment">// 虽然写在注释里，但是你要注意：</span><br><span class="hljs-comment">// prototype是函数才会有的属性</span><br><span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;Kevin&#x27;</span>;<br><span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person1.<span class="hljs-property">name</span>) <span class="hljs-comment">// Kevin</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person2.<span class="hljs-property">name</span>) <span class="hljs-comment">// Kevin</span><br></code></pre></td></tr></table></figure>
+
+<p>那这个函数的 prototype 属性到底指向的是什么呢？是这个函数的原型吗？</p>
+<p>其实，函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的<strong>实例</strong>的原型，也就是这个例子中的 person1 和 person2 的原型。</p>
+<p>那什么是原型呢？你可以这样理解：每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型”继承”属性。</p>
+<p><em>如下图表示构造函数和实例原型之间的关系</em></p>
+<p><img src="https://camo.githubusercontent.com/02789d6806b75d34b2017021f58efa3aa7a2ee6be8a0c05fb3293438884b9ec0/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065312e706e67" alt="构造函数和实例原型的关系图"></p>
+<h4 id="proto"><a href="#proto" class="headerlink" title="proto"></a><em>proto</em></h4><p><em>这是每一个JavaScript对象(除了 null )都具有的一个属性，叫__proto__，这个属性会指向该对象的原型。</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br><br>&#125;<br><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">__proto__</span> === <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<p><em>于是关系图更新</em></p>
+<p><img src="https://camo.githubusercontent.com/3dde335faa15d03ffe3b907f6e5c2b5f4d2183caa4c47ac7486794bc407f663c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065322e706e67" alt="实例与实例原型的关系图"></p>
+<p><em>既然实例对象和构造函数都可以指向原型，那么原型是否有属性指向构造函数或者实例呢？</em></p>
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p><em>指向实例倒是没有，因为一个构造函数可以生成多个实例，但是原型指向构造函数倒是有的，这就是第三个属性：constructor，每个原型都有一个 constructor 属性指向关联的构造函数。</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br><br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span> === <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<p><em>关系图再次更新</em></p>
+<p><img src="https://camo.githubusercontent.com/0aaf005afda83d4e2fdd2bbe523df228b567a091317a2154181771b2706ea2ef/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065332e706e67" alt="实例原型与构造函数的关系图"></p>
+<p>综上所述</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br><br>&#125;<br><br><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">__proto__</span> == <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) <span class="hljs-comment">// true</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> == <span class="hljs-title class_">Person</span>) <span class="hljs-comment">// true</span><br><span class="hljs-comment">// 顺便学习一个ES5的方法,可以获得对象的原型</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(person) === <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="实例与原型"><a href="#实例与原型" class="headerlink" title="实例与原型"></a>实例与原型</h2><p><em>当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还查不到，就去找原型的原型，一直找到最顶层为止。</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br><br>&#125;<br><br><span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;Kevin&#x27;</span>;<br><br><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><br>person.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;Daisy&#x27;</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">name</span>) <span class="hljs-comment">// Daisy</span><br><br><span class="hljs-keyword">delete</span> person.<span class="hljs-property">name</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">name</span>) <span class="hljs-comment">// Kevin</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们给实例对象 person 添加了 name 属性，当我们打印 person.name 的时候，结果自然为 Daisy。</p>
+<p>但是当我们删除了 person 的 name 属性时，读取 person.name，从 person 对象中找不到 name 属性就会从 person 的原型也就是 person.<strong>proto</strong> ，也就是 Person.prototype中查找，幸运的是我们找到了 name 属性，结果为 Kevin</p>
+<h2 id="原型的原型"><a href="#原型的原型" class="headerlink" title="原型的原型"></a>原型的原型</h2><p><em>在前面，我们演示原型也是一个对象，既然是对象，我们就可以用最原始的方式创建它，那就是：</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br>obj.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;Kevin&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-property">name</span>) <span class="hljs-comment">// Kevin</span><br></code></pre></td></tr></table></figure>
+
+<p>其实原型对象就是通过 Object 构造函数生成的，结合之前所讲，实例的 <strong>proto</strong> 指向构造函数的 prototype ，所以我们再更新下关系图：</p>
+<p><img src="https://camo.githubusercontent.com/ad0ee0e2594c1ac471bbb42321963c130f4fe1ef9ec70389c8ced54544d3fd6c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065342e706e67" alt="原型的原型关系图"></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>那 Object.prototype 的原型呢？</p>
+<p>null，我们可以打印：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">__proto__</span> === <span class="hljs-literal">null</span>) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<p>然而 null 究竟代表了什么呢？</p>
+<p>引用阮一峰老师的 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">《undefined与null的区别》</a> 就是：</p>
+<blockquote>
+<p>null 表示“没有对象”，即该处不应该有值。</p>
+</blockquote>
+<p>所以 Object.prototype.<strong>proto</strong> 的值为 null 跟 Object.prototype 没有原型，其实表达了一个意思。</p>
+<p>所以查找属性的时候查到 Object.prototype 就可以停止查找了。</p>
+<p>最后一张关系图也可以更新为：</p>
+<p><img src="https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67" alt="原型链示意图"></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="constructor"><a href="#constructor" class="headerlink" title="constructor"></a>constructor</h3><p>首先是 constructor 属性，我们看个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params"></span>) &#123;<br><br>&#125;<br><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">constructor</span> === <span class="hljs-title class_">Person</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<p>当获取 person.constructor 时，其实 person 中并没有 constructor 属性,当不能读取到constructor 属性时，会从 person 的原型也就是 Person.prototype 中读取，正好原型中有该属性，所以：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">person.<span class="hljs-property">constructor</span> === <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="作用域和动态作用域"><a href="#作用域和动态作用域" class="headerlink" title="作用域和动态作用域"></a>作用域和动态作用域</h2><h3 id="静态作用域与动态作用域"><a href="#静态作用域与动态作用域" class="headerlink" title="静态作用域与动态作用域"></a>静态作用域与动态作用域</h3><p>因为 JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。</p>
+<p>而与词法作用域相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。</p>
+<p>让我们认真看个例子就能明白之间的区别：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> value = <span class="hljs-number">1</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(value);<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">bar</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> value = <span class="hljs-number">2</span>;<br>    <span class="hljs-title function_">foo</span>();<br>&#125;<br><br><span class="hljs-title function_">bar</span>();<br><br><span class="hljs-comment">// 结果是 ???</span><br></code></pre></td></tr></table></figure>
+
+<p>假设JavaScript采用静态作用域，让我们分析下执行过程：</p>
+<p>执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。</p>
+<p>假设JavaScript采用动态作用域，让我们分析下执行过程：</p>
+<p>执行 foo 函数，依然是从 foo 函数内部查找是否有局部变量 value。如果没有，就从调用函数的作用域，也就是 bar 函数内部查找 value 变量，所以结果会打印 2。</p>
+<p>前面我们已经说了，JavaScript采用的是静态作用域，所以这个例子的结果是 1。</p>
+<h3 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h3><p>变量对象</p>
+<p>变量对象是与执行上下文相关的数据作用域，存储了在上下文中定义的变量和函数声明。</p>
+<h3 id="全局上下文"><a href="#全局上下文" class="headerlink" title="全局上下文"></a>全局上下文</h3><p>我们先了解一个概念，叫全局对象。在 <a target="_blank" rel="noopener" href="http://www.w3school.com.cn/jsref/jsref_obj_global.asp">W3School</a> 中也有介绍：</p>
+<blockquote>
+<p>全局对象是预定义的对象，作为 JavaScript 的全局函数和全局属性的占位符。通过使用全局对象，可以访问所有其他所有预定义的对象、函数和属性。</p>
+</blockquote>
+<blockquote>
+<p>在顶层 JavaScript 代码中，可以用关键字 this 引用全局对象。因为全局对象是作用域链的头，这意味着所有非限定性的变量和函数名都会作为该对象的属性来查询。</p>
+</blockquote>
+<blockquote>
+<p>例如，当JavaScript 代码引用 parseInt() 函数时，它引用的是全局对象的 parseInt 属性。全局对象是作用域链的头，还意味着在顶层 JavaScript 代码中声明的所有变量都将成为全局对象的属性。</p>
+</blockquote>
+<p>如果看的不是很懂的话，容我再来介绍下全局对象:</p>
+<p>1.可以通过 this 引用，在客户端 JavaScript 中，全局对象就是 Window 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);<br></code></pre></td></tr></table></figure>
+
+<p>2.全局对象是由 Object 构造函数实例化的一个对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Object</span>);<br></code></pre></td></tr></table></figure>
+
+<p>3.预定义了一堆，嗯，一大堆函数和属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 都能生效</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>());<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">Math</span>.<span class="hljs-title function_">random</span>());<br></code></pre></td></tr></table></figure>
+
+<p>4.作为全局变量的宿主。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>);<br></code></pre></td></tr></table></figure>
+
+<p>5.客户端 JavaScript 中，全局对象有 window 属性指向自身。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">a</span>);<br><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">window</span>.<span class="hljs-property">b</span> = <span class="hljs-number">2</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span>);<br></code></pre></td></tr></table></figure>
+
+<p>花了一个大篇幅介绍全局对象，其实就想说：</p>
+<p>全局上下文中的变量对象就是全局对象呐！</p>
+<h3 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文"></a>函数上下文</h3><p>在函数上下文中，我们用活动对象(activation object, AO)来表示变量对象。</p>
+<p>活动对象和变量对象其实是一个东西，只是变量对象是规范上的或者说是引擎实现上的，不可在 JavaScript 环境中访问，只有到当进入一个执行上下文中，这个执行上下文的变量对象才会被激活，所以才叫 activation object 呐，而只有被激活的变量对象，也就是活动对象上的各种属性才能被访问。</p>
+<p>活动对象是在进入函数上下文时刻被创建的，它通过函数的 arguments 属性初始化。arguments 属性值是 Arguments 对象。</p>
+<h2 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h2><p>执行上下文的代码会分成两个阶段进行处理：分析和执行，我们也可以叫做：</p>
+<ol>
+<li>进入执行上下文</li>
+<li>代码执行</li>
+</ol>
+<h3 id="进入执行上下文"><a href="#进入执行上下文" class="headerlink" title="进入执行上下文"></a>进入执行上下文</h3><p>当进入执行上下文时，这时候还没有执行代码，</p>
+<p>变量对象会包括：</p>
+<ol>
+<li>函数的所有形参 (如果是函数上下文)<ul>
+<li>由名称和对应值组成的一个变量对象的属性被创建</li>
+<li>没有实参，属性值设为 undefined</li>
 </ul>
 </li>
+<li>函数声明<ul>
+<li>由名称和对应值（函数对象(function-object)）组成一个变量对象的属性被创建</li>
+<li>如果变量对象已经存在相同名称的属性，则完全替换这个属性</li>
 </ul>
+</li>
+<li>变量声明<ul>
+<li>由名称和对应值（undefined）组成一个变量对象的属性被创建；</li>
+<li>如果变量名称跟已经声明的形式参数或函数相同，则变量声明不会干扰已经存在的这类属性</li>
+</ul>
+</li>
+</ol>
+<p>举个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">a</span>) &#123;<br>  <span class="hljs-keyword">var</span> b = <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">c</span>(<span class="hljs-params"></span>) &#123;&#125;<br>  <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;;<br><br>  b = <span class="hljs-number">3</span>;<br><br>&#125;<br><br><span class="hljs-title function_">foo</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<p>在进入执行上下文后，这时候的 AO 是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable constant_">AO</span> = &#123;<br>    <span class="hljs-attr">arguments</span>: &#123;<br>        <span class="hljs-number">0</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">length</span>: <span class="hljs-number">1</span><br>    &#125;,<br>    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">b</span>: <span class="hljs-literal">undefined</span>,<br>    <span class="hljs-attr">c</span>: reference to <span class="hljs-keyword">function</span> <span class="hljs-title function_">c</span>(<span class="hljs-params"></span>)&#123;&#125;,<br>    <span class="hljs-attr">d</span>: <span class="hljs-literal">undefined</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h3><p>在代码执行阶段，会顺序执行代码，根据代码，修改变量对象的值</p>
+<p>还是上面的例子，当代码执行完后，这时候的 AO 是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable constant_">AO</span> = &#123;<br>    <span class="hljs-attr">arguments</span>: &#123;<br>        <span class="hljs-number">0</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">length</span>: <span class="hljs-number">1</span><br>    &#125;,<br>    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">b</span>: <span class="hljs-number">3</span>,<br>    <span class="hljs-attr">c</span>: reference to <span class="hljs-keyword">function</span> <span class="hljs-title function_">c</span>(<span class="hljs-params"></span>)&#123;&#125;,<br>    <span class="hljs-attr">d</span>: reference to <span class="hljs-title class_">FunctionExpression</span> <span class="hljs-string">&quot;d&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>到这里变量对象的创建过程就介绍完了，让我们简洁的总结我们上述所说：</p>
+<ol>
+<li>全局上下文的变量对象初始化是全局对象</li>
+<li>函数上下文的变量对象初始化只包括 Arguments 对象</li>
+<li>在进入执行上下文时会给变量对象添加形参、函数声明、变量声明等初始的属性值</li>
+<li>在代码执行阶段，会再次修改变量对象的属性值</li>
+</ol>
+<h2 id="js-判断数组类型"><a href="#js-判断数组类型" class="headerlink" title="js 判断数组类型"></a>js 判断数组类型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr instance <span class="hljs-keyword">of</span> <span class="hljs-title class_">Array</span>)  <span class="hljs-comment">//返回true表示为数组类型</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(arr))  <span class="hljs-comment">//返回true表示为数组类型</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr.<span class="hljs-property">constructor</span> === <span class="hljs-title class_">Array</span>) <span class="hljs-comment">//返回true表示为数组类型</span><br></code></pre></td></tr></table></figure>
+
+<p>Object.prototype.toString.call或者Object.prototype.toString.apply：在不重写toString方法的基础上可以区别Array、Object、null</p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/12/13/167a72dd9efb1f87~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" alt="img"></p>
 
       
 
@@ -301,7 +310,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/06/29/%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/22/canvas/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -311,8 +320,8 @@
     </a>
   
   
-    <a href="/2022/06/29/vue3%E4%BB%A5%E5%8F%8Avue2%E5%BC%BA%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">VUE3</div>
+    <a href="/2022/07/22/%E5%8E%9F%E7%94%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
