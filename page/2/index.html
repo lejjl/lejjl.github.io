@@ -130,6 +130,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-去抖，节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/29/%E5%8E%BB%E6%8A%96%EF%BC%8C%E8%8A%82%E6%B5%81/">防抖节流</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/29/%E5%8E%BB%E6%8A%96%EF%BC%8C%E8%8A%82%E6%B5%81/" class="archive-article-date">
+  	<time datetime="2022-06-29T09:11:53.731Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="防抖debounce（）"><a href="#防抖debounce（）" class="headerlink" title="防抖debounce（）"></a>防抖debounce（）</h2><p>debounce 也就是我们常说的<strong>防抖</strong>，用于<strong>阻止短时间内的频繁操作</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 防反跳。fn函数在最后一次调用时刻的delay毫秒之后执行！</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> fn 执行函数</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> delay 时间间隔</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> isImmediate 为true，debounce会在delay时间间隔的开始时立即调用这个函数</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> &#123;<span class="hljs-type">Function</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">let</span> timeout = <span class="hljs-literal">null</span>;<br><span class="hljs-title function_">debounce</span>(<span class="hljs-params">fn, delay, isImmediate</span>) &#123;<br>  <span class="hljs-keyword">if</span> (timeout !== <span class="hljs-literal">null</span>) <span class="hljs-built_in">clearTimeout</span>(timeout) <span class="hljs-comment">// 时间不到0 清除定时器</span><br>  timeout = <span class="hljs-built_in">setTimeout</span>(fn,delay)<br>&#125;<br><br><span class="hljs-comment">//使用</span><br><span class="hljs-title function_">debounce</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-comment">//ceshi()  //需要执行的fn()</span><br>&#125;,<span class="hljs-number">100</span>,<span class="hljs-literal">true</span>)<br><br><span class="hljs-comment">//写法二</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">debounce</span>(<span class="hljs-params">fn, delay</span>) &#123;<br>  <span class="hljs-keyword">let</span> timer<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">...args</span>) &#123;<br>    <span class="hljs-keyword">if</span> (timer) &#123;<br>      <span class="hljs-built_in">clearTimeout</span>(timer)<br>    &#125;<br>    timer = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      fn.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, args)<br>    &#125;, delay)<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// 测试</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">task</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;run task&#x27;</span>)<br>&#125;<br><span class="hljs-keyword">const</span> debounceTask = <span class="hljs-title function_">debounce</span>(task, <span class="hljs-number">1000</span>)<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, debounceTask)<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="节流throttle（）"><a href="#节流throttle（）" class="headerlink" title="节流throttle（）"></a>节流throttle（）</h2><p>throttle 是节流的意思，和 debounce 不太一样，虽然也是减少频繁操作的，但他并<strong>不会完全阻止操作执行</strong>，反而是<strong>每隔一定时间放行（执行）一次</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> _throttleRunning = <span class="hljs-literal">false</span>;<br>throttle = <span class="hljs-function">(<span class="hljs-params">fn, delay = <span class="hljs-number">500</span></span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (_throttleRunning) &#123;<br>    <span class="hljs-keyword">return</span><br>  &#125;<br>  _throttleRunning = <span class="hljs-literal">true</span><br>  <span class="hljs-title function_">fn</span>()<br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    _throttleRunning = <span class="hljs-literal">false</span><br>  &#125;, delay)<br>&#125;<br><br><span class="hljs-comment">//使用</span><br><span class="hljs-title function_">throttle</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-comment">//ceshi()  //需要执行的fn() 或 参数 </span><br>&#125;, <span class="hljs-number">100</span>)<br></code></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/29/%E5%8E%BB%E6%8A%96%EF%BC%8C%E8%8A%82%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-前端服务器nginx教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
